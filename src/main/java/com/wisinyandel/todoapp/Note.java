@@ -1,5 +1,7 @@
 package com.wisinyandel.todoapp;
 
+import jakarta.persistence.Entity;
+
 import java.util.Date;
 
 public class Note {
