@@ -16,4 +16,20 @@ public class NoteService {
     	return dao.save(note);
     }
 
+    public void destroy(Note note){
+        dao.delete(note);
+    }
+
+    public void update(){
+
+    }
+
+    public void index(){
+
+    }
+
+    public void findNoteById(int id){
+
+    }
+
 }

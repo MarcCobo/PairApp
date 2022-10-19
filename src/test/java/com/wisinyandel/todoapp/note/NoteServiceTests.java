@@ -14,6 +14,7 @@ class NoteServiceTests {
     public void createNote_WhenCalled_ReturnSavedEntity() {
         Note note = new Note(2, "Test",null, null, "link","mentions",1);
         Note result = _service.create(note);
+
         Assert.notNull(result, "Test");
     }
 }
