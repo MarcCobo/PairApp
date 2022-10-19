@@ -1,23 +1,33 @@
-package com.wisinyandel.todoapp;
+package com.wisinyandel.todoapp.note;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Date;
 
+@Entity
+@Table(name = "notes")
 public class Note {
+    @Id
     private int id;
     private String Text;
+    @Column(name = "created_at")
     private Date createdAt;
-    private Date estimateCompletionDate;
+    @Column(name = "estimated_completion_date")
+    private Date estimatedCompletionDate;
     private String link;
     private String mentions;
     private int priority;
 
-    public Note(int id, String text, Date createdAt, Date estimateCompletionDate, String link, String mentions, int priority) {
+    public Note() {}
+
+    public Note(int id, String text, Date createdAt, Date estimatedCompletionDate, String link, String mentions, int priority) {
         this.id = id;
         Text = text;
         this.createdAt = createdAt;
-        this.estimateCompletionDate = estimateCompletionDate;
+        this.estimatedCompletionDate = estimatedCompletionDate;
         this.link = link;
         this.mentions = mentions;
         this.priority = priority;
@@ -48,11 +58,11 @@ public class Note {
     }
 
     public Date getEstimateCompletionDate() {
-        return estimateCompletionDate;
+        return estimatedCompletionDate;
     }
 
-    public void setEstimateCompletionDate(Date estimateCompletionDate) {
-        this.estimateCompletionDate = estimateCompletionDate;
+    public void setEstimateCompletionDate(Date estimatedCompletionDate) {
+        this.estimatedCompletionDate = estimatedCompletionDate;
     }
 
     public String getLink() {
@@ -85,7 +95,7 @@ public class Note {
                 "id=" + id +
                 ", Text='" + Text + '\'' +
                 ", createdAt=" + createdAt +
-                ", estimateCompletionDate=" + estimateCompletionDate +
+                ", estimatedCompletionDate=" + estimatedCompletionDate +
                 ", link='" + link + '\'' +
                 ", mentions='" + mentions + '\'' +
                 ", priority=" + priority +
