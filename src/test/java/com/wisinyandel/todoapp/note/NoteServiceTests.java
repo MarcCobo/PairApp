@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
 @SpringBootTest
 class NoteServiceTests {
@@ -15,10 +14,10 @@ class NoteServiceTests {
 
     @Test
     public void createNote_WhenCalled_ReturnSavedEntity() {
-        Note note = new Note(2, "Test",null, null, "link","mentions",1);
+        Note note = new Note(5, "Test",null, null, "link","mentions",1);
         _service.create(note);
         Note result = _service.findNoteById(2);
-        Assert.notNull(result);
+        Assertions.assertNotNull(result);
     }
     
     @Test
@@ -26,7 +25,7 @@ class NoteServiceTests {
         int id = 2;
     	_service.destroy(id);
     	Note result = _service.findNoteById(id);
-    	Assert.isNull(result, "Test");
+    	Assertions.assertNull(result);
     }
 
     @Test

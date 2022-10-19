@@ -13,8 +13,8 @@ public class NoteService {
     @Autowired
     private NoteJpaRepository dao;
     
-    public Note create(Note note) {
-    	return dao.save(note);
+    public void create(Note note) {
+    	dao.save(note);
     }
 
     public void destroy(long id){
@@ -32,7 +32,7 @@ public class NoteService {
 
     public Note findNoteById(long id){
         Optional<Note> note = dao.findById(id);
-        return note.orElseGet(null);
+        return note.orElse(null);
     }
 
 }
