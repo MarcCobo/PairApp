@@ -1,5 +1,7 @@
 package com.wisinyandel.todoapp.note;
 
+import static org.junit.Assert.assertNull;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,5 +18,12 @@ class NoteServiceTests {
         Note result = _service.create(note);
 
         Assert.notNull(result, "Test");
+    }
+    
+    @Test
+    public void destroyNote_WhenCalled_IdNotFound(int id) {
+    	_service.destroy(id);
+    	Note result = _service.getById(id);
+    	assertNull(result);
     }
 }
