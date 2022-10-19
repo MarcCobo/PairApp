@@ -32,7 +32,7 @@ public class NoteService {
 
     public Note findNoteById(long id){
         Optional<Note> note = dao.findById(id);
-        return note.orElse(null);
+        return note.orElseGet(null);
     }
 
 }

@@ -32,6 +32,6 @@ class NoteServiceTests {
     @Test
     public void findNoteById_WhenCalled_ReturnNote(){
         Note result = _service.findNoteById(1);
-        Assertions.assertNotNull(result);
+        Assertions.assertEquals(1, result.getId());
     }
 }
