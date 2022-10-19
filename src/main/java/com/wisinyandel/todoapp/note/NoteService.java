@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class NoteService {
@@ -16,7 +17,8 @@ public class NoteService {
     	return dao.save(note);
     }
 
-    public void destroy(Note note){
+    public void destroy(long id){
+        Note note = findNoteById(id);
         dao.delete(note);
     }
 
@@ -28,8 +30,9 @@ public class NoteService {
 
     }
 
-    public void findNoteById(int id){
-
+    public Note findNoteById(long id){
+        Optional<Note> note = dao.findById(id);
+        return note.orElse(null);
     }
 
 }

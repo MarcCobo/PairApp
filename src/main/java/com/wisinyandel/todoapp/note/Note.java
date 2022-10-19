@@ -9,7 +9,7 @@ import java.util.Date;
 public class Note {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private int id;
+    private long id;
     private String text;
     @Column(name = "created_at")
     private Date createdAt;
@@ -21,13 +21,13 @@ public class Note {
 
     public Note() {}
 
-    public Note(int id) {
+    public Note(long id) {
         this.id = id;
     }
 
-    public Note(int id, String text, Date createdAt, Date estimatedCompletionDate, String link, String mentions, int priority) {
+    public Note(long id, String text, Date createdAt, Date estimatedCompletionDate, String link, String mentions, int priority) {
         this.id = id;
-        text = text;
+        this.text = text;
         this.createdAt = createdAt;
         this.estimatedCompletionDate = estimatedCompletionDate;
         this.link = link;
@@ -35,11 +35,11 @@ public class Note {
         this.priority = priority;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
