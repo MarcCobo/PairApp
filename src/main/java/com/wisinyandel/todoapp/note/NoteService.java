@@ -10,6 +10,14 @@ import java.util.Date;
 public class NoteService {
 
     @Autowired
-    NoteJpaRepository dao;
+    private NoteJpaRepository dao;
+    
+    public NoteService(NoteJpaRepository dao) {
+    	this.dao = dao;
+    }
+    
+    public Note create(Note note) {
+    	return dao.save(note);
+    }
 
 }
