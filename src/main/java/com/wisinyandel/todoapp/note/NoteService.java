@@ -12,10 +12,6 @@ public class NoteService {
     @Autowired
     private NoteJpaRepository dao;
     
-    public NoteService(NoteJpaRepository dao) {
-    	this.dao = dao;
-    }
-    
     public Note create(Note note) {
     	return dao.save(note);
     }
