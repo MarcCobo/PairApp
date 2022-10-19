@@ -1,9 +1,6 @@
 package com.wisinyandel.todoapp.note;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -11,8 +8,9 @@ import java.util.Date;
 @Table(name = "notes")
 public class Note {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-    private String Text;
+    private String text;
     @Column(name = "created_at")
     private Date createdAt;
     @Column(name = "estimated_completion_date")
@@ -23,9 +21,13 @@ public class Note {
 
     public Note() {}
 
+    public Note(int id) {
+        this.id = id;
+    }
+
     public Note(int id, String text, Date createdAt, Date estimatedCompletionDate, String link, String mentions, int priority) {
         this.id = id;
-        Text = text;
+        text = text;
         this.createdAt = createdAt;
         this.estimatedCompletionDate = estimatedCompletionDate;
         this.link = link;
@@ -42,11 +44,11 @@ public class Note {
     }
 
     public String getText() {
-        return Text;
+        return text;
     }
 
     public void setText(String text) {
-        Text = text;
+        this.text = text;
     }
 
     public Date getCreatedAt() {
@@ -93,7 +95,7 @@ public class Note {
     public String toString() {
         return "Note{" +
                 "id=" + id +
-                ", Text='" + Text + '\'' +
+                ", text='" + text + '\'' +
                 ", createdAt=" + createdAt +
                 ", estimatedCompletionDate=" + estimatedCompletionDate +
                 ", link='" + link + '\'' +
