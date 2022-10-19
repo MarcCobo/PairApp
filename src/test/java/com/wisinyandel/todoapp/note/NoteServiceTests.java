@@ -34,4 +34,10 @@ class NoteServiceTests {
         Note result = _service.findNoteById(1);
         Assertions.assertEquals(1, result.getId());
     }
+    
+    @Test
+    public void findNoteById_NoteDoesntExist_ReturnNull(){
+        Note result = _service.findNoteById(66);
+        Assertions.assertNull(result);
+    }
 }
